@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JimmyStudio Super V2</title>
+  <style>
+    :root{
+      --bg:#08122b; --card:#13203f; --card2:#0e1933; --text:#f4f7fb; --muted:#b9c4d9;
+      --accent:#22c55e; --accent2:#38bdf8; --line:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;background:linear-gradient(180deg,#08122b 0%, #0a1735 100%);color:var(--text)}
+    .wrap{width:min(980px,92vw);margin:0 auto;padding:24px 0 56px}
+    .hero{padding:20px 0 12px} h1{font-size:clamp(32px,7vw,52px);line-height:1.05;margin:0 0 10px;letter-spacing:-.03em}
+    .sub{color:var(--muted);font-size:15px;line-height:1.7;margin:0}
+    .tabs{display:flex;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+    .tab{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--text);padding:12px 16px;border-radius:999px;cursor:pointer;font-weight:700;font-size:14px}
+    .tab.active{background:var(--accent2);color:#06213b;border-color:transparent}
+    .panel{display:none;background:linear-gradient(180deg,var(--card) 0%, var(--card2) 100%);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+    .panel.active{display:block}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:20px;padding:16px}
+    .card h3{margin:0 0 12px;font-size:20px}
+    label{display:block;margin:10px 0 8px;color:var(--muted);font-size:14px;font-weight:700}
+    input,select,textarea{width:100%;padding:14px 15px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:#fff;color:#0f172a;font-size:16px;outline:none}
+    button{appearance:none;border:none;background:var(--accent);color:white;padding:14px 18px;border-radius:14px;font-size:17px;font-weight:800;cursor:pointer;width:100%;margin-top:14px}
+    .ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+    .result{margin-top:14px;padding:14px;border-radius:16px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);line-height:1.8;min-height:74px}
+    .stat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .stat .item{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;padding:14px}
+    .item small{display:block;color:var(--muted);margin-bottom:6px}.item strong{font-size:22px}
+    .products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .product{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:14px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(56,189,248,.16);color:#a8ebff;font-size:12px;font-weight:800;margin-bottom:8px}
+    .price{font-size:24px;font-weight:900;margin:8px 0}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .mini{width:auto;padding:12px 14px}.note{color:var(--muted);font-size:13px;line-height:1.7;margin-top:10px}
+    .list{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.8}
+    .section-title{font-size:28px;margin:0 0 6px}.footer{color:var(--muted);text-align:center;margin-top:20px;font-size:13px}
+    @media (max-width:760px){.grid,.products,.stat{grid-template-columns:1fr}.panel{padding:16px}.wrap{width:min(94vw,980px)}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>JimmyStudio Super V2</h1>
+      <p class="sub">單檔版整合首頁。內含 <b>MotoOne</b>、<b>Uber Driver Tool</b>、<b>MuStar</b> 三個專案的可用版。適合直接上傳 GitHub Pages 使用。</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="motoone">MotoOne</button>
+      <button class="tab" data-tab="uber">Uber Tool</button>
+      <button class="tab" data-tab="mustar">MuStar</button>
+    </div>
+
+    <section class="panel active" id="motoone">
+      <h2 class="section-title">MotoOne 安全帽電商</h2>
+      <p class="sub">先上線可賣版。之後可再換成你的真實商品圖與實際價格。</p>
+      <div class="grid" style="margin-top:14px;">
+        <div class="card">
+          <h3>精選商品</h3>
+          <div class="products">
+            <div class="product"><span class="badge">熱賣</span><h4>城市通勤安全帽</h4><div class="price">NT$ 999</div><div>輕量、透氣、日常通勤適用。</div></div>
+            <div class="product"><span class="badge">新品</span><h4>雙鏡片防風安全帽</h4><div class="price">NT$ 1,280</div><div>夜間清晰、雨天穩定、防風升級。</div></div>
+            <div class="product"><span class="badge">推薦</span><h4>復古造型安全帽</h4><div class="price">NT$ 1,580</div><div>外型俐落，適合街車與日常騎乘。</div></div>
+            <div class="product"><span class="badge">入門</span><h4>超值基本款</h4><div class="price">NT$ 880</div><div>價格友善，先求穩定銷售用。</div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>快速下單表單</h3>
+          <label>姓名</label>
+          <input id="buyerName" placeholder="請輸入姓名">
+          <label>想詢問的款式</label>
+          <select id="helmetType">
+            <option>城市通勤安全帽</option>
+            <option>雙鏡片防風安全帽</option>
+            <option>復古造型安全帽</option>
+            <option>超值基本款</option>
+          </select>
+          <label>備註</label>
+          <textarea id="buyerNote" rows="4" placeholder="例如：尺寸、顏色、數量"></textarea>
+          <div class="cta-row">
+            <button class="mini" onclick="copyOrderText()">複製詢問文字</button>
+            <button class="mini ghost" onclick="scrollToTop()">回到上方</button>
+          </div>
+          <div class="result" id="orderResult">按下「複製詢問文字」後，可直接貼到 LINE 或訊息給客人使用。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="uber">
+      <h2 class="section-title">Uber Driver Tool</h2>
+      <p class="sub">輸入開始時間與目前收入，立即算出每小時收入、今日預測與距離 5000 元目標還差多少。</p>
+
+      <div class="grid" style="margin-top:14px;">
+        <div class="card">
+          <h3>收入計算</h3>
+          <label>開始時間</label>
+          <input id="startTime" type="time">
+          <label>目前收入（TWD）</label>
+          <input id="income" type="number" placeholder="例如 1800">
+          <button onclick="calculateUber()">Calculate</button>
+          <div class="result" id="uberResult">請先輸入開始時間與收入。</div>
+        </div>
+
+        <div class="card">
+          <h3>今日效率儀表板</h3>
+          <div class="stat">
+            <div class="item"><small>每小時收入</small><strong id="hourlyRate">-</strong></div>
+            <div class="item"><small>今日預測</small><strong id="forecast">-</strong></div>
+            <div class="item"><small>距離 5000</small><strong id="gap5000">-</strong></div>
+          </div>
+          <ul class="list">
+            <li>300/hr 以上：非常強</li>
+            <li>220–299/hr：穩定</li>
+            <li>180–219/hr：普通</li>
+            <li>180/hr 以下：建議換區域或調整時段</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="mustar">
+      <h2 class="section-title">MuStar 品牌官網</h2>
+      <p class="sub">品牌首頁可用版。先建立形象，再逐步加入商品、活動、故事與 LINE 導流。</p>
+      <div class="grid" style="margin-top:14px;">
+        <div class="card">
+          <h3>品牌主張</h3>
+          <p>MuStar 是一個溫暖、可愛、好記、可商業化延伸的品牌入口。先建立風格，再用官網、社群與內容把流量收進來。</p>
+          <ul class="list">
+            <li>可愛品牌形象</li>
+            <li>社群擴散容易</li>
+            <li>之後可串接商品頁、活動頁、LINE 加好友</li>
+          </ul>
+          <div class="cta-row"><button class="mini" onclick="copyBrandIntro()">複製品牌介紹</button></div>
+          <div class="result" id="brandResult">按下按鈕後，可複製品牌介紹文字。</div>
+        </div>
+        <div class="card">
+          <h3>SEO 起步方向</h3>
+          <ul class="list">
+            <li>品牌故事頁</li>
+            <li>熱門商品／服務頁</li>
+            <li>常見問題 FAQ</li>
+            <li>LINE 加好友導流頁</li>
+            <li>社群短內容同步發布</li>
+          </ul>
+          <div class="note">這一版的目標不是完美，而是先讓網站能上線、能展示、能開始收流量。</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">JimmyStudio Super V2 · Single File Edition</div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    function scrollToTop(){ window.scrollTo({top:0, behavior:'smooth'}); }
+
+    function calculateUber(){
+      const start = document.getElementById('startTime').value;
+      const income = Number(document.getElementById('income').value);
+      const result = document.getElementById('uberResult');
+      const hourlyRate = document.getElementById('hourlyRate');
+      const forecast = document.getElementById('forecast');
+      const gap5000 = document.getElementById('gap5000');
+      if(!start || !income){ result.innerHTML = '請完整輸入開始時間與目前收入。'; return; }
+      const now = new Date();
+      const parts = start.split(':').map(Number);
+      const startDate = new Date();
+      startDate.setHours(parts[0], parts[1], 0, 0);
+      let hours = (now - startDate) / 1000 / 60 / 60;
+      if(hours <= 0){ hours = 0.5; }
+      const rate = income / hours;
+      const todayForecast = Math.round(rate * 10);
+      const gap = Math.max(0, 5000 - income);
+      let level = '普通';
+      if(rate >= 300) level = '非常強';
+      else if(rate >= 220) level = '穩定';
+      else if(rate < 180) level = '建議調整';
+      hourlyRate.textContent = 'NT$ ' + Math.round(rate);
+      forecast.textContent = 'NT$ ' + todayForecast;
+      gap5000.textContent = 'NT$ ' + gap;
+      result.innerHTML = '已跑 <b>' + hours.toFixed(1) + '</b> 小時。<br>每小時收入約 <b>NT$ ' + Math.round(rate) + '</b>。<br>今日預測約 <b>NT$ ' + todayForecast + '</b>。<br>效率判定：<b>' + level + '</b>。';
+    }
+
+    async function copyOrderText(){
+      const name = document.getElementById('buyerName').value || '客人';
+      const type = document.getElementById('helmetType').value;
+      const note = document.getElementById('buyerNote').value || '想了解尺寸、顏色與價格';
+      const text = '你好，我是 ' + name + '，我想詢問 ' + type + '。備註：' + note;
+      try{ await navigator.clipboard.writeText(text); document.getElementById('orderResult').innerHTML = '已複製：<br><b>' + text + '</b>'; }
+      catch(e){ document.getElementById('orderResult').textContent = text; }
+    }
+
+    async function copyBrandIntro(){
+      const text = 'MuStar 是一個可愛、溫暖、容易傳播的品牌，適合延伸官網、社群內容、LINE導流與商業合作。';
+      try{ await navigator.clipboard.writeText(text); document.getElementById('brandResult').innerHTML = '已複製品牌介紹：<br><b>' + text + '</b>'; }
+      catch(e){ document.getElementById('brandResult').textContent = text; }
+    }
+  </script>
+</body>
+</html>
